@@ -2,22 +2,27 @@ let userScore = 0;
 let compScore = 0;
 
 const choices = document.querySelectorAll(".choice");
+const msg = document.querySelector("#msg");
 
 const genCompChoice = () => {
-    const options = ["stone", "paper", "scissors"];
+    const options = ["stone", "paper", "scissor"];
     const randIdx = Math.floor(Math.random() * 3);
     return options[randIdx];
 }
 
 const drawGame = () => {
     console.log("Game was a draw!");
+    msg.innerText = "It's a Draw!";
 }
 
-const showWinner = () => {
+const showWinner = (userWin) => {
     if (userWin) {
         console.log("You Won!");
+        msg.innerText = "You Won!";
+        msg.style.backgroungColor = "#081b31";        
     }else {
-        console.log("Computer Won!");
+        console.log("You Lost!");
+        msg.innerText = "You Lost!";
     }
 }
 
